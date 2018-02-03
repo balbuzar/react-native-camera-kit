@@ -131,8 +131,9 @@ export default class CameraScreenBase extends Component {
         {
           this.isCaptureRetakeMode() ?
           <Image
-            style={{flex: 1, justifyContent: 'flex-end'}}
+            style={{flex: 1, justifyContent: 'flex-end', backgroundColor: 'black'}}
             source={{uri: this.state.imageCaptured.uri}}
+            resizeMode={Image.resizeMode.contain}
           /> :
           <CameraKitCamera
             ref={(cam) => this.camera = cam}
