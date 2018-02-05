@@ -26,7 +26,7 @@ async function getImagesForCameraEvent(event) {
   if (!event.captureImages) {
     return [];
   }
-  
+
   const images = [];
   event.captureImages.forEach(async (image) => {
     images.push({
@@ -60,6 +60,16 @@ async function resizeImage(image = {}, quality = 'original') {
 }
 
 
+async function deleteTempImage(imageUrl) {
+  const ans = await NativeGalleryModule.deleteTempImage(imageUrl);
+  return ans;
+}
+
+async function saveImageURLToCameraRoll(imageUrl) {
+  const ans = await NativeGalleryModule.saveImageURLToCameraRoll(imageUrl);
+  return ans;
+}
+
 export default {
   checkDevicePhotosAuthorizationStatus,
   requestDevicePhotosAuthorization,
@@ -68,5 +78,7 @@ export default {
   getImagesForIds,
   getImageForTapEvent,
   getImagesForCameraEvent,
-  resizeImage
+  resizeImage,
+  deleteTempImage,
+  saveImageURLToCameraRoll
 }
