@@ -61,6 +61,16 @@ async function requestDevicePhotosAuthorization() {
   return isAuthorized;
 }
 
+async function deleteTempImage(imageUrl) {
+  const ans = await CKGallery.deleteTempImage(imageUrl);
+  return ans;
+}
+
+async function saveImageURLToCameraRoll(imageUrl) {
+  const ans = await CKGallery.saveImageURLToCameraRoll(imageUrl);
+  return ans;
+}
+
 
 export default {
   getAlbumsWithThumbnails,
@@ -70,5 +80,7 @@ export default {
   getImagesForCameraEvent,
   checkDevicePhotosAuthorizationStatus,
   requestDevicePhotosAuthorization,
-  resizeImage
+  resizeImage,
+  deleteTempImage,
+  saveImageURLToCameraRoll
 }
